@@ -7,5 +7,3 @@ RUN apt update && \
     apt install -y python3.10 python3-pip && \
     apt clean && \
     rm -rf /var/lib/apt/lists/*
-
-CMD ["/bin/bash", "-c", "uname -a; python3.10 -V"]
