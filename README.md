@@ -6,9 +6,9 @@
 - [x] Add the **latest Gradle** and the **JDBC SQLite package** to the project (via `build.gradle`).
 - [x] Create a **HelloWorld example**.
 - [x] Run the application using **CMD** and **Gradle**.
-- [ ] Add **docker-compose configuration**.
+- [x] Add **docker-compose configuration**.
 ## Repository Requirements
-- [ ] Include a **Dockerfile**.
-- [ ] Provide a **Docker Hub link**.
-- [ ] For grades **4.0 or higher**, include a **build.gradle** file.
-- [ ] For grade **5.0**, include a **docker-compose.yml** configuration.
+- [x] Include a **Dockerfile**.
+- [x] Provide a **Docker Hub [link](https://hub.docker.com/repository/docker/afterhoursbilly/kotlin-gradle-java/general)**.
+- [x] For grades **4.0 or higher**, include a **build.gradle** file.
+- [x] For grade **5.0**, include a **docker-compose.yml** configuration.

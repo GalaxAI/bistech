@@ -1,0 +1,7 @@
+services:
+  kotlin-gradle-java:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - GRADLE_USER_HOME=/app/.gradle
