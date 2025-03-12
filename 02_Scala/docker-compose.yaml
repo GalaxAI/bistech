@@ -1,0 +1,28 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9000:9000"
+    environment:
+      - PLAY_HTTPS_PORT=9443
+    networks:
+      - app-network
+
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    depends_on:
+      - app
+    environment:
+      NGROK_AUTHTOKEN: ${NGROK_TOKEN}
+    command: http app:9000
+    ports:
+      - "4040:4040"  # Ngrok dashboard
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

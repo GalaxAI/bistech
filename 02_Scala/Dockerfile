@@ -14,5 +14,4 @@ RUN curl -L -o scala.tgz "https://github.com/scala/scala3/releases/download/$SCA
 ENV SCALA_HOME=/usr/local/scala3-$SCALA_VERSION
 ENV PATH=$PATH:$SCALA_HOME/bin
 
-# Verify installation
 RUN scala -version
