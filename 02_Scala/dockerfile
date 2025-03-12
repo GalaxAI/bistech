@@ -1,0 +1,18 @@
+FROM ubuntu:24.04
+
+# Update package lists and install dependencies
+RUN apt-get update && apt-get install -y curl openjdk-17-jdk
+
+# Set Scala version and download Scala binary from github
+ENV SCALA_VERSION=3.6.4
+RUN curl -L -o scala.tgz "https://github.com/scala/scala3/releases/download/$SCALA_VERSION/scala3-$SCALA_VERSION-x86_64-pc-linux.tar.gz" \
+    && tar -xzf scala.tgz -C /usr/local \
+    && mv /usr/local/scala3-$SCALA_VERSION-x86_64-pc-linux /usr/local/scala3-$SCALA_VERSION \
+    && rm scala.tgz
+
+# Configure Scala environment variables
+ENV SCALA_HOME=/usr/local/scala3-$SCALA_VERSION
+ENV PATH=$PATH:$SCALA_HOME/bin
+
+# Verify installation
+RUN scala -version
