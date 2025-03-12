@@ -1,0 +1,23 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '2.1.10'
+    id 'java'          // Enables Java support
+    id 'application'   // Enables the 'application' plugin for running the app
+}
+
+repositories {
+    mavenCentral()     // Uses Maven Central for dependencies
+}
+
+dependencies {
+    implementation 'org.xerial:sqlite-jdbc:3.42.0.0'  // JDBC SQLite driver
+}
+
+application {
+    mainClass.set("my.Main")
+}
+
+tasks.jar {
+    manifest {
+        attributes 'Main-Class': 'my.MainKt'
+    }
+}
