@@ -32,8 +32,7 @@ COPY play-scala-seed/ .
 # Build the application
 RUN sbt compile
 
-# Expose Play's default port
 EXPOSE 9000
 
-# Run command (development mode)
+# Run (development mode)
 CMD ["sbt", "run"]
