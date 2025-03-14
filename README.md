@@ -20,9 +20,9 @@
 ## Requirements
 - [x] Create a **Products controller**.  
 - [x] Implement **CRUD endpoints** for the Products controller (GET: show all, show by ID; POST, PUT, DELETE) using a **list** for data storage.  
-- [ ] Create **Categories** and **Cart controllers** with **CRUD endpoints** (same methods as above) using lists instead of databases.  
+- [x] Create **Categories** and **Cart controllers** with **CRUD endpoints** (same methods as above) using lists instead of databases.  
 - [x] Dockerize the application, create a Docker image, and add a script to run the app via **ngrok** (do **not** hardcode the ngrok token in the script).  
-- [ ] Configure **CORS settings** to allow CRUD methods for **two specified hosts**.  
+- [x] Configure **CORS settings** to allow CRUD methods for **two specified hosts**.  
 
 ## Repository Requirements
 - [x] Include a **Dockerfile**.  

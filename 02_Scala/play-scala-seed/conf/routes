@@ -14,3 +14,17 @@ GET     /products/:id           controllers.ProductsController.show(id: Int)
 POST    /products               controllers.ProductsController.create
 PUT     /products/:id           controllers.ProductsController.update(id: Int)
 DELETE  /products/:id           controllers.ProductsController.delete(id: Int)
+
+# Categories routes
+GET     /categories             controllers.CategoriesController.index
+GET     /categories/:id         controllers.CategoriesController.show(id: Int)
+POST    /categories             controllers.CategoriesController.create
+PUT     /categories/:id         controllers.CategoriesController.update(id: Int)
+DELETE  /categories/:id         controllers.CategoriesController.delete(id: Int)
+
+# Cart routes
+GET     /cart                   controllers.CartController.index
+GET     /cart/:id               controllers.CartController.show(id: Int)
+POST    /cart                   controllers.CartController.create
+PUT     /cart/:id               controllers.CartController.update(id: Int)
+DELETE  /cart/:id               controllers.CartController.delete(id: Int)
