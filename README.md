@@ -31,4 +31,13 @@
 - [x] Include **CORS configuration files** (e.g., `application.conf`).  
 - **CRUD** operations: Show all items, retrieve by ID (GET), update (PUT), delete (DELETE), and add (POST).  
 - Controllers must use **Scala 3** and the **Play Framework**.  
-- Data storage for controllers can be based on **lists** (no database required).  
+- Data storage for controllers can be based on **lists** (no database required).
+
+# 03 Kotlin Task
+
+## Requirements
+- [ ] Create a client application in Kotlin using the Ktor framework that allows sending messages to the Discord platform.
+- [ ] The application is capable of receiving user messages from the Discord platform directed to the application (bot).
+- [ ] Return a list of categories upon a user's specific request.
+- [ ] Return a list of products according to the requested category.
+- [ ] The application will additionally support one of the following platforms: Slack, Messenger, Webex.
