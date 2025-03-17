@@ -1,24 +1,44 @@
-# Dockerfile.kotlin-hello
 FROM ubuntu:24.04
 
-# Install Java 8 and utilities
-RUN apt-get update && \
-    apt-get install -y openjdk-8-jdk wget unzip && \
-    apt-get clean
+# Avoid prompts from apt
+ENV DEBIAN_FRONTEND=noninteractive
 
-# Download and install Kotlin 2.1.10 from GitHub release
-RUN wget https://github.com/JetBrains/kotlin/releases/download/v2.1.10/kotlin-compiler-2.1.10.zip && \
-    unzip kotlin-compiler-2.1.10.zip -d /opt/kotlin && \
-    rm kotlin-compiler-2.1.10.zip
+# Update and install dependencies
+RUN apt-get update && apt-get install -y \
+    wget \
+    unzip \
+    curl \
+    git \
+    zip \
+    openjdk-17-jdk \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-# Set Kotlin bin directory in PATH
-ENV PATH="/opt/kotlin/kotlinc/bin:${PATH}"
+# Set up environment variables
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+ENV PATH=$PATH:$JAVA_HOME/bin
 
-# Create app directory
+# Install Kotlin
+RUN curl -s https://get.sdkman.io | bash \
+    && bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && \
+    sdk install kotlin && \
+    sdk install gradle"
+
+# Environment setup for SDKMAN
+ENV SDKMAN_DIR="/root/.sdkman"
+ENV PATH=$PATH:/root/.sdkman/candidates/kotlin/current/bin:/root/.sdkman/candidates/gradle/current/bin
+
+# Set working directory
 WORKDIR /app
 
-# Copy source code
-COPY Main.kt .
+# Copy project files (assuming they are in the same directory as the Dockerfile)
+COPY . .
 
-# Build and run the Kotlin app
-CMD ["sh", "-c", "kotlinc Main.kt -include-runtime -d app.jar && java -jar app.jar"]
+# Build the application
+RUN bash -c "source /root/.sdkman/bin/sdkman-init.sh && gradle build"
+
+# Expose the port your Ktor application will run on (default is 8080)
+EXPOSE 8080
+
+# Run the application
+CMD ["bash", "-c", "source /root/.sdkman/bin/sdkman-init.sh && gradle run"]

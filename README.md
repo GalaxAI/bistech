@@ -36,8 +36,8 @@
 # 03 Kotlin Task
 
 ## Requirements
-- [ ] Create a client application in Kotlin using the Ktor framework that allows sending messages to the Discord platform.
-- [ ] The application is capable of receiving user messages from the Discord platform directed to the application (bot).
-- [ ] Return a list of categories upon a user's specific request.
-- [ ] Return a list of products according to the requested category.
+- [x] Create a client application in Kotlin using the Ktor framework that allows sending messages to the Discord platform.
+- [x] The application is capable of receiving user messages from the Discord platform directed to the application (bot).
+- [x] Return a list of categories upon a user's specific request.
+- [x] Return a list of products according to the requested category.
 - [ ] The application will additionally support one of the following platforms: Slack, Messenger, Webex.
