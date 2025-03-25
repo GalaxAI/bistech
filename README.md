@@ -58,3 +58,27 @@
 - [x] Provide **GORM model definitions** with relationships
 - [x] Include **SQLite database** configuration
 - [x] Add **CRUD endpoint implementations** for all models
+
+
+# 05 Frontend Task
+
+## Requirements
+- [ ] Create a **client application** using the **React.js** library.
+- [ ] Implement **three components**: **Products**, **Cart**, and **Payments**.
+  - The **Cart** and **Payments** components should **send data** to the server application.
+  - The **Products** component should **fetch product data** from the server application.
+- [ ] The server application should be written in one of three languages: **Go**.
+- [ ] Data between all components should be passed using **React hooks**.
+
+- [ ]: Implement **two components** (Products & Payments). Payments should send data to the server, and Products should fetch data.
+- [ ]: Add a **Cart component with a view** and implement **routing**.
+- [ ]: Ensure data is passed between components using **React hooks**.
+- [ ]: Include a **script** to run both the **server and client applications** via **Docker Compose**.
+- [ ]: Use **Axios** for HTTP requests and configure **CORS headers**.
+
+## Repository Requirements
+- [ ] Include **React component files** (Products, Cart, Payments).
+- [ ] Provide **Docker Compose configuration** for running the full stack.
+- [ ] Use **Axios** for API communication.
+- [ ] Configure **CORS settings** for the server application.
+- [ ] Include a **script** to launch the application via Docker.
