@@ -54,7 +54,7 @@
 - [x] Organize queries using **GORM scopes**.
 
 ## Repository Requirements
-- [ ] Include complete **Echo framework** implementation
-- [ ] Provide **GORM model definitions** with relationships
-- [ ] Include **SQLite database** configuration
-- [ ] Add **CRUD endpoint implementations** for all models
+- [x] Include complete **Echo framework** implementation
+- [x] Provide **GORM model definitions** with relationships
+- [x] Include **SQLite database** configuration
+- [x] Add **CRUD endpoint implementations** for all models
