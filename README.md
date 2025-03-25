@@ -48,8 +48,8 @@
 - [ ] Create an **Echo framework project** in Go using **GORM** with **5 models**, including a relationship between at least two models.
 - [ ] Implement simple **CRUD endpoints** for data management using models (suggest **SQLite** as database).
 - [x] Create an Echo application in Go with a **Product controller** implementing CRUD operations.
-- [ ] Create a **Product model** using GORM and use it for product CRUD operations in the controller (replace list-based storage).
-- [ ] Add a **Cart model** and corresponding endpoints.
+- [x] Create a **Product model** using GORM and use it for product CRUD operations in the controller (replace list-based storage).
+- [x] Add a **Cart model** and corresponding endpoints.
 - [ ] Create a **Category model** and establish a relationship between categories and products.
 - [ ] Organize queries using **GORM scopes**.
 
