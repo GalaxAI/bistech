@@ -9,12 +9,21 @@ import (
 	"gorm.io/gorm"
 )
 
+// Category represents a product category
+type Category struct {
+	gorm.Model
+	ID       int       `json:"id" gorm:"primaryKey;autoIncrement"`
+	Name     string    `json:"name" gorm:"not null;unique"`
+	Products []Product `json:"products" gorm:"many2many:product_categories;"`
+}
+
 // Product represents a product model with GORM tags
 type Product struct {
 	gorm.Model
-	ID    int     `json:"id" gorm:"primaryKey;autoIncrement"`
-	Name  string  `json:"name" gorm:"not null"`
-	Price float64 `json:"price" gorm:"not null"`
+	ID         int        `json:"id" gorm:"primaryKey;autoIncrement"`
+	Name       string     `json:"name" gorm:"not null"`
+	Price      float64    `json:"price" gorm:"not null"`
+	Categories []Category `json:"categories" gorm:"many2many:product_categories;"`
 }
 
 type Cart struct {
@@ -22,6 +31,7 @@ type Cart struct {
 	ID       int       `json:"id" gorm:"primaryKey;autoIncrement"`
 	Products []Product `json:"products" gorm:"many2many:cart_products;"`
 }
+
 
 var db *gorm.DB
 
@@ -33,18 +43,97 @@ func initDB() {
 	}
 
 	// Migrate the schema
-	db.AutoMigrate(&Product{}, &Cart{})
+	db.AutoMigrate(&Category{}, &Product{}, &Cart{})
 }
 
-// GetProducts returns all products
+// GORM Scopes
+func WithCategory(category string) func(db *gorm.DB) *gorm.DB {
+	return func(db *gorm.DB) *gorm.DB {
+		return db.Joins("JOIN product_categories ON product_categories.product_id = products.id").
+			Joins("JOIN categories ON categories.id = product_categories.category_id").
+			Where("categories.name = ?", category)
+	}
+}
+
+func PriceGreaterThan(price float64) func(db *gorm.DB) *gorm.DB {
+	return func(db *gorm.DB) *gorm.DB {
+		return db.Where("price > ?", price)
+	}
+}
+
+// Category handlers
+func GetCategories(c echo.Context) error {
+	var categories []Category
+	result := db.Find(&categories)
+	if result.Error != nil {
+		return echo.NewHTTPError(http.StatusInternalServerError, "Failed to fetch categories")
+	}
+	return c.JSON(http.StatusOK, categories)
+}
+
+func CreateCategory(c echo.Context) error {
+	var category Category
+	if err := c.Bind(&category); err != nil {
+		return echo.NewHTTPError(http.StatusBadRequest, "Invalid category data")
+	}
+
+	result := db.Create(&category)
+	if result.Error != nil {
+		return echo.NewHTTPError(http.StatusInternalServerError, "Failed to create category")
+	}
+	return c.JSON(http.StatusCreated, category)
+}
+
+func AddCategoryToProduct(c echo.Context) error {
+	productID, err := strconv.Atoi(c.Param("product_id"))
+	if err != nil {
+		return echo.NewHTTPError(http.StatusBadRequest, "Invalid product ID")
+	}
+
+	categoryID, err := strconv.Atoi(c.Param("category_id"))
+	if err != nil {
+		return echo.NewHTTPError(http.StatusBadRequest, "Invalid category ID")
+	}
+
+	var product Product
+	if err := db.First(&product, productID).Error; err != nil {
+		return echo.NewHTTPError(http.StatusNotFound, "Product not found")
+	}
+
+	var category Category
+	if err := db.First(&category, categoryID).Error; err != nil {
+		return echo.NewHTTPError(http.StatusNotFound, "Category not found")
+	}
+
+	if err := db.Model(&product).Association("Categories").Append(&category); err != nil {
+		return echo.NewHTTPError(http.StatusInternalServerError, "Failed to add category to product")
+	}
+
+	return c.JSON(http.StatusOK, product)
+}
+
+// Updated Product handlers using scopes
 func GetProducts(c echo.Context) error {
 	var products []Product
-	result := db.Find(&products)
+	query := db.Model(&Product{})
+
+	// Apply scopes based on query params
+	if category := c.QueryParam("category"); category != "" {
+		query = query.Scopes(WithCategory(category))
+	}
+	if minPrice := c.QueryParam("min_price"); minPrice != "" {
+		if price, err := strconv.ParseFloat(minPrice, 64); err == nil {
+			query = query.Scopes(PriceGreaterThan(price))
+		}
+	}
+
+	result := query.Find(&products)
 	if result.Error != nil {
 		return echo.NewHTTPError(http.StatusInternalServerError, "Failed to fetch products")
 	}
 	return c.JSON(http.StatusOK, products)
 }
+
 
 // GetProduct returns a single product by ID
 func GetProduct(c echo.Context) error {
@@ -227,10 +316,14 @@ func DeleteCart(c echo.Context) error {
 }
 
 func main() {
-	// Initialize database
 	initDB()
 
 	e := echo.New()
+
+	// Category Routes
+	e.GET("/categories", GetCategories)
+	e.POST("/categories", CreateCategory)
+	e.POST("/products/:product_id/categories/:category_id", AddCategoryToProduct)
 
 	// Product Routes
 	e.GET("/products", GetProducts)
