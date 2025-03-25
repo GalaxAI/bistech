@@ -73,12 +73,11 @@
 - [ ]: Implement **two components** (Products & Payments). Payments should send data to the server, and Products should fetch data.
 - [ ]: Add a **Cart component with a view** and implement **routing**.
 - [ ]: Ensure data is passed between components using **React hooks**.
+- [ ]: Use **Bun fetch** for HTTP requests and configure **CORS headers**.
 - [ ]: Include a **script** to run both the **server and client applications** via **Docker Compose**.
-- [ ]: Use **Axios** for HTTP requests and configure **CORS headers**.
 
 ## Repository Requirements
 - [ ] Include **React component files** (Products, Cart, Payments).
-- [ ] Provide **Docker Compose configuration** for running the full stack.
-- [ ] Use **Axios** for API communication.
+- [x] Provide **Docker Compose configuration** for running the full stack.
 - [ ] Configure **CORS settings** for the server application.
-- [ ] Include a **script** to launch the application via Docker.
+- [x] Include a **script** to launch the application via Docker.

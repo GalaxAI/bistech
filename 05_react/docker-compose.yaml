@@ -1,0 +1,24 @@
+services:
+  frontend:
+    build:
+      context: . # Path to React frontend
+      dockerfile: dockerfile
+    ports:
+      - "3000:3000"  # Frontend exposed on host:3000
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ../04_golang  # Path to Go backend
+      dockerfile: dockerfile
+    ports:
+      - "1323:1323"  # Backend exposed on host:1323
+    environment:
+      - DB_PATH=/app/database.db  # Example for SQLite
+    volumes:
+      - ./04_golang/database.db:/app/database.db  # Mount DB file (adjust if needed)
+    restart: unless-stopped

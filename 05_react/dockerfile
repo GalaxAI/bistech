@@ -1,0 +1,20 @@
+# Use the official Bun image with version 1.2
+FROM oven/bun:1.2
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy package.json and bun.lockb (if exists) for dependency installation
+COPY package.json bun.lock ./
+
+# Install dependencies using Bun
+RUN bun install
+
+# Copy the rest of the application files
+COPY . .
+
+# Expose port (default is 3000 for Bun)
+EXPOSE 3000
+
+# Start the Bun server
+CMD ["bun", "run", "start"]
