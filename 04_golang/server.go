@@ -5,10 +5,19 @@ import (
 	"strconv"
 
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
+func addCORS(next echo.HandlerFunc) echo.HandlerFunc {
+    return func(c echo.Context) error {
+        c.Response().Header().Set("Access-Control-Allow-Origin", "*")
+        c.Response().Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+        c.Response().Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+        return next(c)
+    }
+}
 // Category represents a product category
 type Category struct {
 	gorm.Model
@@ -319,6 +328,13 @@ func main() {
 	initDB()
 
 	e := echo.New()
+	e.Use(addCORS)
+
+
+	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+        AllowOrigins: []string{"*"},
+        AllowMethods: []string{http.MethodGet, http.MethodPost, http.MethodPut, http.MethodDelete, http.MethodOptions},
+    }))
 
 	// Category Routes
 	e.GET("/categories", GetCategories)
