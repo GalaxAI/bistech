@@ -81,3 +81,8 @@
 - [x] Provide **Docker Compose configuration** for running the full stack.
 - [x] Configure **CORS settings** for the server application.
 - [x] Include a **script** to launch the application via Docker.
+
+
+# 07 Sonar Integration
+
+Link to [repo](https://github.com/GalaxAI/07_sonar)
