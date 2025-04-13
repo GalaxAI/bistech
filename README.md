@@ -1,12 +1,12 @@
 # 01 Docker Task
 
 ## Requirements
-- [x] Create an **Ubuntu image** with **Python 3.10**.
-- [x] Create an **Ubuntu:24.04 image** with **Java 8** and **Kotlin**.
-- [x] Add the **latest Gradle** and the **JDBC SQLite package** to the project (via `build.gradle`).
-- [x] Create a **HelloWorld example**.
-- [x] Run the application using **CMD** and **Gradle**.
-- [x] Add **docker-compose configuration**.
+- [x] Create an **Ubuntu image** with **Python 3.10**. [commit](https://github.com/GalaxAI/bistech/commit/adc4ddb5217d8489db0338dc7a81cd5a253f4944)
+- [x] Create an **Ubuntu:24.04 image** with **Java 8** and **Kotlin**. [commit](https://github.com/GalaxAI/bistech/commit/28e2296a01ccf2f6fa1e54e5ebc195e0d85a81fb)
+- [x] Add the **latest Gradle** and the **JDBC SQLite package** to the project (via `build.gradle`). [commit](https://github.com/GalaxAI/bistech/commit/4169ee18cb5f80947fe890be19bf0920c3939f7a)
+- [x] Create a **HelloWorld example**. [commit](https://github.com/GalaxAI/bistech/commit/4169ee18cb5f80947fe890be19bf0920c3939f7a)
+- [x] Run the application using **CMD** and **Gradle**. [commit](https://github.com/GalaxAI/bistech/commit/4169ee18cb5f80947fe890be19bf0920c3939f7a)
+- [x] Add **docker-compose configuration**. [commit](https://github.com/GalaxAI/bistech/commit/c5120458eaa1af5c01800a460c41ac9aefa32eda)
 ## Repository Requirements
 - [x] Include a **Dockerfile**.
 - [x] Provide a **Docker Hub [link](https://hub.docker.com/repository/docker/afterhoursbilly/kotlin-gradle-java/general)**.
