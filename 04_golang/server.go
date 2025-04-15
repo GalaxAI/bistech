@@ -330,11 +330,15 @@ func main() {
 	e := echo.New()
 	e.Use(addCORS)
 
-
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
         AllowOrigins: []string{"*"},
         AllowMethods: []string{http.MethodGet, http.MethodPost, http.MethodPut, http.MethodDelete, http.MethodOptions},
     }))
+
+    // Home Route
+    e.GET("/", func(c echo.Context) error {
+        return c.String(http.StatusOK, "Hello World!")
+    })
 
 	// Category Routes
 	e.GET("/categories", GetCategories)

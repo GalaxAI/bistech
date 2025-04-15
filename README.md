@@ -49,13 +49,13 @@
 # 04 Go Task
 
 ## Requirements
-- [x] Create an **Echo framework project** in Go using **GORM** with **5 models**, including a relationship between at least two models.
-- [x] Implement simple **CRUD endpoints** for data management using models (suggest **SQLite** as database).
-- [x] Create an Echo application in Go with a **Product controller** implementing CRUD operations.
-- [x] Create a **Product model** using GORM and use it for product CRUD operations in the controller (replace list-based storage).
-- [x] Add a **Cart model** and corresponding endpoints.
-- [x] Create a **Category model** and establish a relationship between categories and products.
-- [x] Organize queries using **GORM scopes**.
+- [x] Create an **Echo framework project** in Go using **GORM** with **5 models**, including a relationship between at least two models. [commit](https://github.com/GalaxAI/bistech/commit/c9031fc7b2550ba0f220ecaa00703de44ccfd2b6)
+- [x] Implement simple **CRUD endpoints** for data management using models (suggest **SQLite** as database).  [commit](https://github.com/GalaxAI/bistech/commit/c9031fc7b2550ba0f220ecaa00703de44ccfd2b6)
+- [x] Create an Echo application in Go with a **Product controller** implementing CRUD operations. [commit](https://github.com/GalaxAI/bistech/commit/2c4eb0f98412f2b8449f5c67e2305456c678d18d)
+- [x] Create a **Product model** using GORM and use it for product CRUD operations in the controller (replace list-based storage). [commit](https://github.com/GalaxAI/bistech/commit/34686621c687f158a821baef58be22ca203fcfb3)
+- [x] Add a **Cart model** and corresponding endpoints. [commit](https://github.com/GalaxAI/bistech/commit/34686621c687f158a821baef58be22ca203fcfb3)
+- [x] Create a **Category model** and establish a relationship between categories and products. [commit](https://github.com/GalaxAI/bistech/commit/c9031fc7b2550ba0f220ecaa00703de44ccfd2b6)
+- [x] Organize queries using **GORM scopes**. [commit](https://github.com/GalaxAI/bistech/commit/c9031fc7b2550ba0f220ecaa00703de44ccfd2b6)
 
 ## Repository Requirements
 - [x] Include complete **Echo framework** implementation
