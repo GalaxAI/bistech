@@ -16,13 +16,12 @@
 
 
 # 02 Scala Task
-
 ## Requirements
-- [x] Create a **Products controller**.  
-- [x] Implement **CRUD endpoints** for the Products controller (GET: show all, show by ID; POST, PUT, DELETE) using a **list** for data storage.  
-- [x] Create **Categories** and **Cart controllers** with **CRUD endpoints** (same methods as above) using lists instead of databases.  
-- [x] Dockerize the application, create a Docker image, and add a script to run the app via **ngrok** (do **not** hardcode the ngrok token in the script).  
-- [x] Configure **CORS settings** to allow CRUD methods for **two specified hosts**.  
+- [x] Create a **Products controller**. [commit](https://github.com/GalaxAI/bistech/commit/ebe1968b5af1501393a32f8f7734825effd1f58f)  
+- [x] Implement **CRUD endpoints** for the Products controller (GET: show all, show by ID; POST, PUT, DELETE) using a **list** for data storage. [commit](https://github.com/GalaxAI/bistech/commit/ebe1968b5af1501393a32f8f7734825effd1f58f)  
+- [x] Create **Categories** and **Cart controllers** with **CRUD endpoints** (same methods as above) using lists instead of databases.  [commit](https://github.com/GalaxAI/bistech/commit/2be4aa9220ff9fd573067d21558eeef9b1fe4408)
+- [x] Dockerize the application, create a Docker image, and add a script to run the app via **ngrok** (do **not** hardcode the ngrok token in the script). [commit](https://github.com/GalaxAI/bistech/commit/ebe1968b5af1501393a32f8f7734825effd1f58f)  
+- [x] Configure **CORS settings** to allow CRUD methods for **two specified hosts**. [commit](https://github.com/GalaxAI/bistech/commit/2be4aa9220ff9fd573067d21558eeef9b1fe4408)
 
 ## Repository Requirements
 - [x] Include a **Dockerfile**.  

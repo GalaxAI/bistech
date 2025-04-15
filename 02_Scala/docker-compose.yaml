@@ -5,8 +5,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "9000:9000"
-    environment:
-      - PLAY_HTTPS_PORT=9443
+    # environment:
+      # - PLAY_HTTPS_PORT=9443
     networks:
       - app-network
 
