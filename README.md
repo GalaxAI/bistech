@@ -67,12 +67,12 @@
 # 05 Frontend Task
 
 ## Requirements
-- [x] Create a **client application** using the **React.js** library.
-- [x] Implement **three components**: **Products**, **Cart**, and **Payments**.
-  - The **Cart** and **Payments** components should **send data** to the server application.
-  - The **Products** component should **fetch product data** from the server application.
-- [x] The server application should be written in one of three languages: **Go**.
-- [x] Data between all components should be passed using **React hooks**.
+- [x] Create a **client application** using the **React.js** library. [commit](https://github.com/GalaxAI/bistech/commit/0a44880da0f389bb24ca921e697d64423178200e)
+- [x] Implement **three components**: **Products**, **Cart**, and **Payments**. [commit](https://github.com/GalaxAI/bistech/commit/0a44880da0f389bb24ca921e697d64423178200e)
+  - The **Cart** and **Payments** components should **send data** to the server application. [commit](https://github.com/GalaxAI/bistech/commit/0a44880da0f389bb24ca921e697d64423178200e)
+  - The **Products** component should **fetch product data** from the server application. [commit](https://github.com/GalaxAI/bistech/commit/0a44880da0f389bb24ca921e697d64423178200e)
+- [x] The server application should be written in one of three languages: **Go**. [commit](https://github.com/GalaxAI/bistech/commit/0a44880da0f389bb24ca921e697d64423178200e)
+- [x] Data between all components should be passed using **React hooks**. [commit](https://github.com/GalaxAI/bistech/commit/0a44880da0f389bb24ca921e697d64423178200e)
 
 - [x]: Implement **two components** (Products & Payments). Payments should send data to the server, and Products should fetch data.
 - [x]: Add a **Cart component with a view** and implement **routing**.
