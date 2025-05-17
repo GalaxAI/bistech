@@ -86,6 +86,13 @@
 - [x] Configure **CORS settings** for the server application.
 - [x] Include a **script** to launch the application via Docker.
 
+# 06 Test's Task
+> [Project](https://github.com/GalaxAI/unicodeplots-py/tree/master/tests)
+- [x] 20 tests in Python
+- [x] 50 asserts
+- [ ] 50 assert of old go project
+- [ ] testing API fo go project
+- [ ] run tests on Browserstack
 
 # 07 Sonar Integration
 
